@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "./pages/Login";
 import MainLayout from "./components/layouts/MainLayout";
 import Lobby from "./pages/Lobby";
+import LeaderboardPage from "./pages/Leaderboard/Leaderboard";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: "/lobby",
         element: <Lobby />,
+      },
+      {
+        path: "leaderboard",
+        element: <LeaderboardPage />,
       },
     ],
   },
