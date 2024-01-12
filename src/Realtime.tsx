@@ -63,9 +63,19 @@ export default function Realtime() {
       realtimeService.event = data.event;
       realtimeService.page = data.payload.page;
       realtimeService.profile = structuredClone(data.payload.profile);
-      realtimeService.profile.groupName =
-        structuredClone(data.payload.profile)?.teamName || "No group";
-      realtimeService.teamPairs = structuredClone(data.payload?.teamMembers);
+
+      if (data.payload?.profile?.teamName) {
+        realtimeService.profile.groupName =
+          structuredClone(data.payload.profile)?.teamName || "No group";
+      }
+
+      if (data.payload?.teamMembers) {
+        realtimeService.teamPairs = structuredClone(data.payload?.teamMembers);
+      }
+
+      if (data.payload?.teamPairs) {
+        realtimeService.teamPairs = structuredClone(data.payload?.teamPairs);
+      }
     };
 
     ws.onclose = () => {
