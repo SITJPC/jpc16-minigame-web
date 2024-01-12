@@ -2,7 +2,6 @@
  * v0 by Vercel.
  * @see https://v0.dev/t/GcBkPZWLhTn
  */
-import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
 import "@/Leaderboard.css";
 import { LeaderboardResizable, useLeaderboard } from "./LeaderboardResizable";
 

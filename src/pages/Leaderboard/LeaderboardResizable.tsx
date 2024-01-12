@@ -5,7 +5,7 @@ import {
 } from "@/components/ui/resizable";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { LeaderboardPayload, LeaderboardUpdate } from "@/types/leaderboard";
+import { LeaderboardUpdate } from "@/types/leaderboard";
 import { Fragment, useEffect, useState } from "react";
 import useSWR from "swr";
 import { proxy, useSnapshot } from "valtio";
@@ -27,7 +27,7 @@ export function LeaderboardResizable() {
   const [isResizable, setResizable] = useState(false);
   const { payload } = useLeaderboard();
   useSWR<{ data: LeaderboardUpdate }>(
-    "https://wwwii.bsthun.com/mock/jpc/leaderboard.json",
+    import.meta.env["VITE_LEADERBOARD_URL"] as string,
     {
       refreshInterval: 1000,
       dedupingInterval: 1000,
