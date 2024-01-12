@@ -4,9 +4,21 @@
  */
 import "@/Leaderboard.css";
 import { LeaderboardResizable, useLeaderboard } from "./LeaderboardResizable";
+import { useEffect } from "react";
+
+declare global {
+  interface Window {
+    bubbly: () => void;
+  }
+}
 
 export default function LeaderboardPage() {
   const { payload } = useLeaderboard();
+
+  useEffect(() => {
+    if (window.bubbly) window.bubbly();
+  }, []);
+
   return (
     <div
       className="leaderboard flex w-[1920px] h-[1080px] flex-col "
